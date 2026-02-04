@@ -1,0 +1,16 @@
+[
+    {
+        "nome": "Carlos",
+        "comentario": "top",
+        "nota": 5,
+        "data": "2026-02-04T22:22:30+01:00",
+        "status": "aprovado"
+    },
+    {
+        "nome": "Eduardo",
+        "comentario": "recomendo!",
+        "nota": 5,
+        "data": "2026-02-04T22:25:30+01:00",
+        "status": "analise"
+    }
+]

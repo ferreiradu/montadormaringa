@@ -1,0 +1,438 @@
+@charset "UTF-8";
+
+/* ================= VARIÁVEIS DO TEMA ================= */
+:root {
+  --cor-principal: #0ea5e9;
+  --cor-secundaria: #020617;
+  --texto-claro: #e5e7eb;
+  --destaque: #ff7a00;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ================= NAV VOLTAR ================= */
+.nav-topo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+
+
+
+.voltar-home {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(2,6,23,.9);
+  color: var(--texto-claro);
+  padding: 10px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 500;
+  box-shadow: 0 5px 20px rgba(0,0,0,.6);
+  transition: transform .3s, background .3s;
+}
+
+.voltar-home i {
+  font-size: 14px;
+}
+
+.voltar-home:hover {
+  transform: translateX(-3px);
+  background: var(--cor-principal);
+}
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cor-secundaria);
+  color: var(--texto-claro);
+  line-height: 1.6;
+}
+
+/* ================= PERFIL ================= */
+.perfil {
+  text-align: center;
+  padding: 120px 20px 50px;
+  background: linear-gradient(rgba(2,6,23,.85), rgba(2,6,23,.95));
+}
+
+.perfil-foto {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid var(--cor-principal);
+  object-fit: cover;
+  box-shadow: 0 15px 40px rgba(0,0,0,.7);
+}
+
+.perfil h1 {
+  margin-top: 15px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.profissao {
+  margin-top: 5px;
+  font-weight: 500;
+  opacity: .85;
+}
+
+/* ================= INFO PERFIL ================= */
+.info {
+  max-width: 650px;
+  margin: 30px auto;
+  text-align: left;
+  background: rgba(255,255,255,.04);
+  padding: 22px 26px;
+  border-radius: 16px;
+  line-height: 1.7;
+}
+
+/* destaque para os títulos */
+.info strong {
+  display: block;
+  color: #38bdf8; /* azul do tema */
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 1.05rem;
+}
+
+/* texto normal */
+.info p {
+  color: #e5e7eb;
+  margin-bottom: 14px;
+}
+
+
+/* ========
+========= REDES SOCIAIS ================= */
+h3 {
+  text-align: center;
+  padding: 20px;
+}
+.redes {
+ 
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+/* remove sublinhado */
+.redes a {
+  text-decoration: none;
+  transition: transform .3s, filter .3s;
+}
+
+/* tamanho maior dos ícones */
+.redes i {
+  font-size: 34px;
+}
+
+/* cores originais */
+.redes .fa-instagram {
+  color: #E1306C;
+}
+
+.redes .fa-facebook-f {
+  color: #1877F2;
+}
+
+.redes .fa-whatsapp {
+  color: #25D366;
+}
+
+/* efeito hover elegante */
+.redes a:hover {
+  transform: scale(1.25);
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.35));
+}
+
+
+/* ================= BOTÃO ORÇAMENTO ================= */
+/* BOTÃO ORÇAMENTO – DESTAQUE MÁXIMO */
+.btn-orcamento {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 16px 38px;
+  background: #ff7a00;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.05rem;
+  animation: pulseGlow 1.6s infinite ease-in-out;
+  transition: transform .3s;
+}
+
+/* Animação combinada: brilho + crescer/diminuir */
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 6px rgba(255,122,0,.6);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(255,174,66,.95);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 6px rgba(255,122,0,.6);
+  }
+}
+
+/* Hover (fica mais profissional) */
+.btn-orcamento:hover {
+  transform: scale(1.12);
+}
+
+
+/* ================= TÍTULOS ================= */
+.titulo {
+  text-align: center;
+  font-size: 2rem;
+  
+}
+
+/* ================= GALERIA ================= */
+
+.slider {
+  position: relative;
+  max-width: 260px; /* diminui a caixa */
+  margin: 40px auto;
+}
+
+.slider img {
+  width: 100%;
+  height: 320px;      /* controla altura */
+  object-fit: cover; /* não distorce */
+  border-radius: 16px;
+}
+
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(2,6,23,.85);
+  color: #fff;
+  border: none;
+  font-size: 26px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev { left: -55px; }
+.next { right: -55px; }
+
+/* CTA APÓS GALERIA */
+.cta-orcamento {
+  text-align: center;
+  margin: 60px 0 80px;
+}
+
+
+/* ================= AVALIAÇÕES ================= */
+.avaliacoes {
+  max-width: 750px;
+  margin: auto;
+  padding-bottom: 60px;
+}
+
+.avaliar {
+  background: rgba(255,255,255,.03);
+  padding: 20px;
+  border-radius: 18px;
+}
+
+/* ================= ESTRELAS AVALIAÇÃO ================= */
+.estrelas {
+  display: flex;
+  gap: 6px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.estrelas i {
+  color: #374151; /* cinza escuro */
+  transition: color 0.2s, transform 0.2s;
+}
+
+.estrelas i:hover {
+  transform: scale(1.2);
+}
+
+/* estrelas selecionadas */
+.estrelas i.ativa {
+  color: gold;
+}
+
+
+.avaliar textarea {
+  width: 100%;
+  margin: 15px 0;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,.05);
+  color: var(--texto-claro);
+  resize: none;
+}
+
+.avaliar button {
+  background: var(--cor-principal);
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#lista-avaliacoes {
+  margin-top: 25px;
+}
+
+
+
+/* CAMPO NOME CLIENTE */
+.avaliar input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* STATUS DA AVALIAÇÃO */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .75rem;
+  margin-top: 5px;
+  opacity: .85;
+}
+
+.status.verificado {
+  color: #22c55e;
+}
+
+.status.analise {
+  color: #facc15;
+}
+
+
+.comentario {
+  background: rgba(255,255,255,.04);
+  padding: 18px;
+  border-radius: 14px;
+  margin-top: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.4);
+  font-size: .95rem;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 25px;
+  font-size: .9rem;
+  opacity: .7;
+  background: #020617;
+}
+
+/* ================= DESKTOP / TELAS GRANDES ================= */
+@media (min-width: 1024px) {
+
+  
+  .perfil-foto {
+    width: 220px;
+    height: 220px;
+  }
+
+  .perfil h1 {
+    font-size: 3.2rem;
+  }
+
+  .profissao {
+    font-size: 1.1rem;
+  }
+
+  .info {
+    max-width: 700px;
+    padding: 30px 40px;
+    font-size: 1.05rem;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+  }
+
+  
+  /* ================= GALERIA ================= */
+  .slider {
+    max-width: 400px; /* ocupa mais da tela */
+    margin: 50px auto;
+  }
+
+  .slider img {
+    width: 100%;
+    height: 600px;
+    border-radius: 18px;
+  }
+
+  .nav.prev { left: -60px; }
+  .nav.next { right: -60px; }
+
+  /* ================= GALERIA EM GRID (3 IMAGENS POR LINHA) ================= */
+  .galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-items: center;
+    margin-top: 50px;
+  }
+
+  .galeria img {
+    width: 300px;
+    height: 380px;
+    border-radius: 18px;
+    transition: transform .4s, box-shadow .4s;
+  }
+
+  .galeria img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,.6);
+  }
+
+  /* ================= AVALIAÇÕES ================= */
+  .avaliacoes {
+    max-width: 600px;
+    padding: 60px 0;
+  }
+
+  .avaliar {
+    padding: 25px 30px;
+  }
+
+  /* ================= FOOTER ================= */
+  footer {
+    font-size: 1rem;
+    padding: 35px;
+  }
+}
+

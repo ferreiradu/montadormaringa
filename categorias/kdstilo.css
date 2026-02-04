@@ -1,0 +1,39 @@
+/* ================= KNOCK DOWN PAGE ================= */
+
+/* Aumenta o espaçamento do título para não encostar no menu fixo */
+#profissionais {
+    padding-top: 160px; /* espaço abaixo do menu fixo */
+    margin-top: 0;
+  }
+  
+  /* Ajuste do parágrafo de descrição */
+  #profissionais p {
+    font-size: 1rem;
+    color: #cbd5e1; /* cinza claro */
+    margin-bottom: 50px;
+  }
+ 
+  /* Ajuste do botão voltar */
+  #profissionais .btn-whats {
+    background: #0ea5e9;
+    padding: 18px 50px;
+    font-size: 1.1rem;
+  }
+  
+  /* Mobile */
+  @media (max-width: 600px) {
+    #profissionais {
+      padding-top: 130px;
+    }
+  
+    #profissionais p {
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+    }
+  
+    #profissionais .btn-whats {
+      font-size: 1rem;
+      padding: 15px 40px;
+    }
+  }
+  

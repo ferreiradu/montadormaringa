@@ -1,0 +1,478 @@
+@charset "UTF-8";
+
+/* ================= VARIÁVEIS ================= */
+:root {
+  --cor-principal: #0ea5e9;
+  --cor-secundaria: #020617;
+  --texto-claro: #e5e7eb;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cor-secundaria);
+  color: var(--texto-claro);
+  overflow-x: hidden;
+}
+
+
+/* ================= MENU MODERNO ================= */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(2, 6, 23, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+  z-index: 1000;
+}
+
+/* LOGO */
+.menu .logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px rgba(56,189,248,.4);
+}
+
+/* LINKS */
+.menu .links {
+  display: flex;
+  gap: 30px;
+}
+
+/* LINK INDIVIDUAL */
+.menu .links a {
+  position: relative;
+  text-decoration: none;
+  color: #e5e7eb;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 5px 0;
+  transition: color .3s ease;
+}
+
+/* LINHA ANIMADA */
+.menu .links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  transition: width .3s ease;
+  border-radius: 10px;
+}
+
+/* HOVER */
+.menu .links a:hover {
+  color: #38bdf8;
+}
+
+.menu .links a:hover::after {
+  width: 100%;
+}
+
+/* LINK ATIVO (PÁGINA ATUAL) */
+.menu .links a.ativo {
+  color: #38bdf8;
+}
+
+.menu .links a.ativo::after {
+  width: 100%;
+}
+
+
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 100px 20px 80px; /* topo maior para menu fixo */
+  background: linear-gradient(rgba(2,6,23,.75), rgba(2,6,23,.85)),
+    url('imagens/montador.png') center/cover fixed;
+    
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  background: linear-gradient(90deg, #38bdf8, #4bc1f8, #0ea5e9); /* gradiente suave e claro */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* faz o gradiente aparecer no texto */
+  color: transparent;
+  margin-bottom: 70px;
+  
+}
+
+.hero p {
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.btn-whats {
+  margin-top: 40px;
+  display: inline-block;
+  background: #25d366;
+  color: #fff;
+  padding: 20px 50px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem; 
+  font-weight: 600;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.btn-whats:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37,211,102,.5);
+}
+
+/* ================= CATEGORIAS ================= */
+.categorias {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.lista-categorias {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.categoria-card {
+  max-width: 220px;
+  text-decoration: none;
+  color: #0ea5e9;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.categoria-card:hover {
+  transform: translateY(-5px);
+}
+
+.categoria-img {
+  width: 150px;   /* DIMINUÍDO */
+  height: 150px;  /* DIMINUÍDO */
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #0ea5e9;
+  margin: 0 auto;
+  background: #f1f5f9;
+}
+
+.categoria-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.categoria-card h3 {
+  margin-top: 12px;
+  font-size: 1rem;
+}
+
+.categoria-card p {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #475569;
+}
+
+
+
+/* ================= SEÇÕES ================= */
+section {
+  padding: 80px 20px;
+  margin-bottom: 80px;
+}
+
+#profissionais {
+  padding-top: 30px; /* antes era 80px */
+  margin-top: 40px; /* puxa para cima */
+}
+
+
+.titulo {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  color: #e5e7eb;
+  
+}
+
+
+
+/* ================= GALERIA ================= */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.galeria img {
+  width: 250px;
+  height: 320px;
+  border-radius: 18px;
+  transition: transform .4s, box-shadow .4s;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,.6);
+}
+
+/* ================= PROFISSIONAIS ================= */
+.profissionais {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 50px;
+  justify-items: center;
+}
+
+.card-profissional {
+  text-decoration: none;
+  color: #e5e7eb;
+  text-align: center;
+  transition: transform .4s;
+}
+
+.card-profissional img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #0ea5e9;
+  box-shadow: 0 10px 30px rgba(0,0,0,.5);
+  transition: transform .4s, box-shadow .4s;
+}
+
+.card-profissional h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+}
+
+.card-profissional span {
+  font-size: .9rem;
+  opacity: .8;
+}
+
+.card-profissional:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 15px 40px rgba(14,165,233,.6);
+}
+
+.card-profissional:hover {
+  transform: translateY(-5px);
+}
+
+#contato {
+  padding-top: 30px;   /* diminui o espaço interno */
+  margin-top: -60px;   /* puxa a section para cima */
+}
+
+
+/* ================= ÍCONES FLUTUANTES ================= */
+.social-float {
+  position: fixed;
+  right: 20px;
+  bottom: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 999;
+}
+
+.social-float a {
+  width: 50px;
+  height: 50px;
+  background: #0ea5e9;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  text-decoration: none;
+  transition: transform .3s, background .3s;
+}
+
+.social-float a:hover {
+  transform: scale(1.15);
+  background: #38bdf8;
+}
+
+.whatsapp-float {
+  background: #25d366 !important;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #020617;
+  text-align: center;
+  padding: 25px;
+  font-size: .9rem;
+  opacity: .8;
+  margin-bottom: 10px;
+  margin-top: 100px;
+}
+/* ================= DESKTOP / TABLET GRANDE ================= */
+@media (min-width: 1024px) {
+
+  /* ================= HERO ================= */
+  .hero {
+    flex-direction: row;
+    text-align: left;
+    padding: 140px 100px;
+    gap: 80px;
+
+    background: linear-gradient(rgba(2,6,23,.9), rgba(2,6,23,.95));
+  }
+
+  .hero h1 {
+    font-size: 4.8rem;
+    margin-bottom: 40px;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 520px;
+  }
+
+  .btn-whats {
+    font-size: 1.2rem;
+    padding: 22px 60px;
+  }
+
+  .hero::after {
+    content: "";
+    width: 40%;
+    height: 560px;
+    background: url('imagens/montador.png') center/cover no-repeat;
+
+    border-top-left-radius: 180px;
+    border-bottom-left-radius: 180px;
+
+    box-shadow: -35px 0 70px rgba(0,0,0,.65);
+  }
+
+  /* ================= MENU ================= */
+  .menu {
+    height: 80px;
+    padding: 0 80px;
+  }
+
+  .menu .links a {
+    font-size: 1.05rem;
+  }
+
+  /* ================= SEÇÕES ================= */
+  section {
+    padding: 120px 100px;
+    margin-bottom: 120px;
+  }
+
+  .titulo {
+    font-size: 2.3rem;
+    margin-bottom: 60px;
+  }
+
+  /* ================= PROFISSIONAIS ================= */
+  .profissionais {
+    gap: 80px;
+  }
+
+  .card-profissional img {
+    width: 210px;
+    height: 210px;
+  }
+
+  .card-profissional h3 {
+    font-size: 1.3rem;
+  }
+
+  .card-profissional span {
+    font-size: 1rem;
+  }
+
+  /* ================= GALERIA ================= */
+  .galeria {
+    gap: 50px;
+  }
+
+  .galeria img {
+    width: 300px;
+    height: 380px;
+  }
+
+  /* ================= ÍCONES FLUTUANTES ================= */
+  .social-float a {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+  }
+
+  /* ================= FOOTER ================= */
+  footer {
+    font-size: 1rem;
+    padding: 35px;
+  }
+}
+
+/* ================= MOBILE - CATEGORIAS LADO A LADO ================= */
+@media (max-width: 600px) {
+
+  .lista-categorias {
+    flex-wrap: nowrap;       /* NÃO QUEBRA */
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .categoria-card {
+    max-width: 100%;
+    flex: 1;                 /* 3 ocupam a largura igualmente */
+  }
+
+  .categoria-img {
+    width: 120px;             /* MENOR NO MOBILE */
+    height: 120px;
+  }
+
+  .categoria-card h3 {
+    font-size: 0.9rem;
+  }
+
+  .categoria-card p {
+    font-size: 0.75rem;
+  }
+}
+
+
+
