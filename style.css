@@ -113,7 +113,7 @@ body {
   text-align: center;
   padding: 100px 20px 80px; /* topo maior para menu fixo */
   background: linear-gradient(rgba(2,6,23,.75), rgba(2,6,23,.85)),
-    url('Imagens/montador.png') center/cover fixed;
+    url('Imagens/montador.png') center/cover no-repeat;
     
 }
 
@@ -448,6 +448,7 @@ footer {
     font-size: 0.75rem;
   }
 }
+
 
 
 
