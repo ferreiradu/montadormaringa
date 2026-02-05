@@ -15,6 +15,12 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
 
 /* ================= NAV VOLTAR ================= */
 .nav-topo {
@@ -246,10 +252,12 @@ h3 {
 
 
 /* ================= AVALIAÇÕES ================= */
+
 .avaliacoes {
   max-width: 750px;
-  margin: auto;
-  padding-bottom: 60px;
+  margin: 0 auto;
+  padding: 0 16px 60px; /* 👈 espaço lateral mobile */
+  box-sizing: border-box;
 }
 
 .avaliar {
@@ -320,6 +328,7 @@ h3 {
 
 /* STATUS DA AVALIAÇÃO */
 .status {
+  
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -329,7 +338,7 @@ h3 {
 }
 
 .status.verificado {
-  color: #22c55e;
+  color: #03f85d;
 }
 
 .status.analise {
@@ -342,9 +351,37 @@ h3 {
   padding: 18px;
   border-radius: 14px;
   margin-top: 18px;
-  box-shadow: 0 10px 25px rgba(0,0,0,.4);
+  box-shadow: 0 10px 25px rgba(241, 237, 237, 0.4);
   font-size: .95rem;
 }
+
+/* ESTRELAS DAS AVALIAÇÕES (CLIENTES) */
+.estrelas-view {
+  color: gold;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+/* BOTÃO VER MAIS / VER MENOS – APENAS TEXTO */
+.btn-ver-mais {
+  display: inline-block;
+  margin: 15px 0 0 auto; /* empurra para a direita */
+  background: none;
+  border: none;
+  color: var(--cor-principal);
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color .3s ease, transform .3s ease;
+}
+
+.btn-ver-mais:hover {
+  color: #38bdf8;
+  transform: translateX(3px);
+}
+
+
 
 /* ================= FOOTER ================= */
 footer {
@@ -420,10 +457,14 @@ footer {
   }
 
   /* ================= AVALIAÇÕES ================= */
-  .avaliacoes {
-    max-width: 600px;
-    padding: 60px 0;
+  
+  @media (min-width: 1024px) {
+    .avaliacoes {
+      max-width: 700px;
+      padding: 60px 24px; /* 👈 mantém laterais */
+    }
   }
+  
 
   .avaliar {
     padding: 25px 30px;
