@@ -124,31 +124,69 @@ function listarAvaliacoes() {
       }
 
       // Mais recentes primeiro
-      avaliacoes.reverse().forEach(av => {
+      avaliacoes.reverse();
+
+      avaliacoes.forEach((av, index) => {
         const div = document.createElement("div");
         div.className = "comentario";
 
-        const statusTexto =
-          av.status === "aprovado"
-            ? "✔ Avaliação verificada"
-            : "⏳ Avaliação em análise";
-
-        div.innerHTML = `
-          <strong>${av.nome}</strong><br>
-          <span class="estrelas-view">${gerarEstrelas(av.nota || 5)}</span><br>
-          ${av.comentario}<br>
-          <small>${tempoAtras(av.data)}</small><br>
-          <span class="status ${av.status}">${statusTexto}</span>
-        `;
+        // Oculta todos menos o mais recente
+        if (index !== 0) {
+          div.classList.add("oculto");
+          div.style.display = "none";
+        }
+        
+        const statusClasse =
+        av.status === "aprovado" ? "verificado" : "analise";
+      
+      const statusTexto =
+        av.status === "aprovado"
+          ? "✔ Avaliação verificada"
+          : "⏳ Avaliação em análise";
+      
+      div.innerHTML = `
+        <strong>${av.nome}</strong><br>
+        <span class="estrelas-view">${gerarEstrelas(av.nota || 5)}</span><br>
+        ${av.comentario}<br>
+        <small>${tempoAtras(av.data)}</small><br>
+        <span class="status ${statusClasse}">${statusTexto}</span>
+      `;
+      
+        
 
         container.appendChild(div);
       });
+
+      // Se houver mais de uma avaliação, cria botão "Ver mais"
+      if (avaliacoes.length > 1) {
+        const btn = document.createElement("button");
+        btn.className = "btn-ver-mais";
+        btn.textContent = "Ver mais avaliações";
+
+        let aberto = false;
+
+        btn.onclick = () => {
+          const ocultos = container.querySelectorAll(".comentario.oculto");
+
+          ocultos.forEach(c => {
+            c.style.display = aberto ? "none" : "block";
+          });
+
+          aberto = !aberto;
+          btn.textContent = aberto
+            ? "Ver menos avaliações"
+            : "Ver mais avaliações";
+        };
+
+        container.appendChild(btn);
+      }
     })
     .catch(() => {
       document.getElementById("lista-avaliacoes").innerHTML =
         "<p>Erro ao carregar avaliações.</p>";
     });
 }
+
 
 // ================= INICIALIZA =================
 document.addEventListener("DOMContentLoaded", () => {
