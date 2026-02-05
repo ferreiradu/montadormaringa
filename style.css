@@ -326,7 +326,7 @@ footer {
     text-align: left;
     padding: 140px 100px;
     gap: 80px;
-
+     url('Imagens/montador.png') center/cover fixed;
     background: linear-gradient(rgba(2,6,23,.9), rgba(2,6,23,.95));
   }
 
@@ -448,6 +448,7 @@ footer {
     font-size: 0.75rem;
   }
 }
+
 
 
 
